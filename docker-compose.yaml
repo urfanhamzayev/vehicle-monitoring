@@ -1,0 +1,29 @@
+version: "3.3"
+services:
+  
+  eureka-service:
+      build: eureka-service
+      ports:
+        - 8302:8302
+      environment:
+        REGISTRY_URL: http://localhost:8302/eureka
+  
+  customer-service:
+      build: customer-service
+      ports:
+        - 8301:8301
+      environment:
+        REGISTRY_URL: http://localhost:8302/eureka
+
+  vehicle-service:
+      build: vehicle-service
+      ports:
+        - 8300:8300
+      environment:
+        REGISTRY_URL: http://localhost:8302/eureka
+
+  vehicle-signal-generator:
+      build: vehicle-signal-generator
+      ports:
+        - 8080:8080           
+        

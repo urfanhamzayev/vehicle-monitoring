@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo Build started on `date`
+      - cd vehicle-signal-generator
+      - mvn test
+      - echo Build completed on `date`
+      - mvn package
+      - docker build -t vehicle-signal-generator .

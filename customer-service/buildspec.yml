@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo Build started on `date`
+      - cd customer-service
+      - mvn test
+      - echo Build completed on `date`
+      - mvn package
+      - docker build -t customer-service .
